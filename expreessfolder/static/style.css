@@ -1,0 +1,22 @@
+*{
+    color:rgb(168, 62, 62);
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(248, 200, 141);
+    height: 30px;
+}
+li{
+    padding: 2px;
+    margin: 2px;
+    list-style:none;
+    background-color: antiquewhite;
+    border-radius: 7px;
+}
+p{
+    margin: 12px;
+    color:rgb(134, 212, 120) !important;
+}

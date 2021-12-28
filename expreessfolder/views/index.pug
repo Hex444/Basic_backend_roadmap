@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- # and { } is used to use a var from a json object (here it is const params) -->
+    <!-- always use | before a variable so that pug doesnt get confused with the other elements -->
+    <title>#{title}</title>
+    <!-- include a forieng link -->
+    style
+        include ../static/style.css
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Contact Us</li>
+            <li>About</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>This is Heading</h1>
+        <p>
+            | #{content}
+        </p>
+    </div>
+    <!-- plain html using pug -->
+</body>
+</html>
