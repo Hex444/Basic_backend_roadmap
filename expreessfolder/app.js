@@ -1,4 +1,4 @@
-// pls install express before running this because i might delete the node_modules folder for disk space issues
+// pls install express before running this and delete the old files (if there are any) because i might delete the node_modules folder for disk space issues
 
 
 
@@ -9,10 +9,23 @@
 // express app
 // sudo -s to run as admin
 const express = require('express');
+const path = require('path')
 // to initialize an app
 const app = express();
 const port = 80;
 
+// set template engine as pug
+app.set('view engine', 'pug')
+// setting views path
+app.set('views', path.join(__dirname, 'views'))
+
+// pug demo end point
+app.get('/demo', (req,res)=>{
+    res.status(200).render('demo', {title: 'Hey yo', message: 'Hello there'})
+})
+
+
+// for serving static files
 app.use('/static', express.static('static'))
 
 // handles get requests
