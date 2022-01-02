@@ -32,8 +32,9 @@ app.set('views', path.join(__dirname, 'views')) // setting views path
 
 // ENDPOINTS
 app.get('/', (req,res)=>{
-    const con = "Best content ever is in youtube"
-    const params = {'title': "pug is cool but complicated", content:con};
+    const con = "Best content ever is in youtube";
+    const title = "This is a title variable";
+    const params = {'title': title, 'content':con};
     res.status(200).render('index.pug', params);
 })
 
