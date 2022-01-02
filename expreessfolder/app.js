@@ -8,6 +8,7 @@
 // INSERTING MODULES, SETTING PORT AND INITIALIZING APP  
 const express = require('express');
 const path = require('path')
+const fs = require('fs')
 // to initialize an app
 const app = express();
 const port = 80;
@@ -19,6 +20,7 @@ const port = 80;
 
 // EXPRESS SPECIFIC
 app.use('/static', express.static('static')) // for serving static files
+app.use(express.urlencoded()); // helps to get form data to express
 
 // PUG SPECIFIC
 app.set('view engine', 'pug') // set template engine as pug
@@ -32,9 +34,24 @@ app.set('views', path.join(__dirname, 'views')) // setting views path
 
 // ENDPOINTS
 app.get('/', (req,res)=>{
-    const con = "Best content ever is in youtube";
+    const submitmsg = 'your form has been submitted';
     const title = "This is a title variable";
-    const params = {'title': title, 'content':con};
+    const params = {'title': title, 'submitmsg':submitmsg};
+    res.status(200).render('index.pug', params);
+})
+app.post('/', (req,res)=>{
+    // req.body is the data from the form
+    contactformdata = req.body;
+    console.log(contactformdata)
+    contactname = contactformdata.name;
+    contactage = contactformdata.age;
+    contactgender = contactformdata.gender;
+    contactmore = contactformdata.more;
+
+    let outputtowrite = `the name of the client is ${contactname}, ${contactage} of ${contactgender}gender. More about him/her ${contactmore}`
+    fs.writeFileSync('output.txt', outputtowrite)
+    const submitmsg = 'your form has been submitted';
+    const params = {'submitmsg':submitmsg};
     res.status(200).render('index.pug', params);
 })
 

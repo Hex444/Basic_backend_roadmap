@@ -32,3 +32,11 @@ input, textarea{
 .container{
     background-color: yellow;
 }
+.btn{
+    background-color: aliceblue;
+    padding: 5px 12px;
+    display: block;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 2px;
+}
