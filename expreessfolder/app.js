@@ -1,4 +1,14 @@
+//
+//
+//
+//
+//
 // pls install express before running this and delete the old files (if there are any) because i might delete the node_modules folder for disk space issues
+//
+//
+//
+//
+//
 // sudo -s to run as admin
 
 
